@@ -1,3 +1,6 @@
+numTest(X,A) :- number(X), A is X.
+numTest(X,A) :- A is 0.
+
 adder([ ],0).
 adder([X|L],Sum) :- adder(L,SL), numTest(X,A), Sum is A + SL.
 
