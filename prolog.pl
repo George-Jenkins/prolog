@@ -55,6 +55,11 @@ getAns(A) :- A=false, false.
 
 min-above-min(L1, L2, N) :- runProgram(L1, L2, N, A), !,getAns(A).
 
+findNumber([],N,A) :- A = false.
+findNumber([X|Li],N,A) :- is_list(X), findNumber(X,N,S), contFinding(Li,N,S,A).
+findNumber([X|Li],N,A) :- N \= X, findNumber(Li,N,A).
+findNumber([X|Li],N,A) :- N = X, A = true.
+
 contSearch(L,[],S,R) :- S=false, R=false.
 contSearch(L,[],S,R) :- R=true.
 contSearch(L,N,S,R) :- S=false,  R=false.
