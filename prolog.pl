@@ -1,3 +1,9 @@
+adder([ ],0).
+adder([X|L],Sum) :- adder(L,SL), numTest(X,A), Sum is A + SL.
+
+findAns(N,Sum) :- N=Sum, true.
+findAns(N,Sum) :- N\=Sum, false.
+
 findSum(L,N) :- adder(L,Sum), findAns(N,Sum).
 
 sum-up-numbers-simple(L, N) :- findSum(L,N).
