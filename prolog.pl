@@ -22,6 +22,10 @@ findSum(L,N) :- adder2(L,Sum), findAns(N,Sum).
 
 sum-up-numbers-general(L, N) :- findSum(L,N).
 
+min([],X,X).
+min([H|T],M,X) :- H =< M, min(T,H,X).
+min([H|T],M,X) :- M < H, min(T,M,X).
+min([H|T],X) :- min(T,H,X).
 
 findMin(L,M) :- newList([],L,NL), min(NL,M).
 findAnsw(Min1,N,Answ) :- Min1 \= N, Answ = false.
