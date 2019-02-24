@@ -23,6 +23,9 @@ findSum(L,N) :- adder2(L,Sum), findAns(N,Sum).
 sum-up-numbers-general(L, N) :- findSum(L,N).
 
 
+checkCorrectMin(Min1,Min2,L1,L2,N,A) :- Min1>Min2, findAnsw(Min1,N,A).
+checkCorrectMin(Min1,Min2,L1,L2,N,A) :- Min1=Min2, delete(L1,Min1,NewL1), findMins(NewL1,L2,N,A).
+checkCorrectMin(Min1,Min2,L1,L2,N,A) :- Min1<Min2, delete(L1,Min1,NewL1), findMins(NewL1,L2,N,A).
 
 findMins([],L2,N,Answ) :- Answ = false.
 findMins(L1,[],N,Answ) :- findMin(L1,Min1), findAnsw(Min1,N,Answ).
