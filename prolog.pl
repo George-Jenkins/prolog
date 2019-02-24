@@ -24,6 +24,9 @@ sum-up-numbers-general(L, N) :- findSum(L,N).
 
 
 
+findMins([],L2,N,Answ) :- Answ = false.
+findMins(L1,[],N,Answ) :- findMin(L1,Min1), findAnsw(Min1,N,Answ).
+findMins(L1,L2,N,Answ) :- findMin(L1,Min1), findMin(L2,Min2), checkCorrectMin(Min1,Min2,L1,L2,N,Answ).
 
 runProgram(L1, L2, N, A) :- newList([],L1,Li1), newList([],L2,Li2), findMins(Li1,Li2,N,A).
 
