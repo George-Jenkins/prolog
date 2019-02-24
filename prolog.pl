@@ -1,3 +1,7 @@
+findSum(L,N) :- adder(L,Sum), findAns(N,Sum).
+
+sum-up-numbers-simple(L, N) :- findSum(L,N).
+
 numTest2(X,A) :- number(X), A is X.
 numTest2(X,A) :- is_list(X), adder2(X,A).
 numTest2(X,A) :- A is 0.
