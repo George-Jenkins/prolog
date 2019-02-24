@@ -55,6 +55,10 @@ getAns(A) :- A=false, false.
 
 min-above-min(L1, L2, N) :- runProgram(L1, L2, N, A), !,getAns(A).
 
+checkEachElement(L,[X|N],R) :- findNumber(L,X,S), contSearch(L,N,S,R).
+
+getAnswer(R1,R2,A) :- R1=true, R2=true, true.
+getAnswer(R1,R2,A) :- false.
 
 checkList([],[],[],A) :- A = true.
 checkList([_|_],[],[],A) :- A = true.
