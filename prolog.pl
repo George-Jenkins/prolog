@@ -22,8 +22,6 @@ findSum(L,N) :- adder2(L,Sum), findAns(N,Sum).
 
 sum-up-numbers-general(L, N) :- findSum(L,N).
 
-list_empty([], true).
-list_empty([_|_], false).
 
 append( [], X, X).
 append( [X | Y], Z, [X | W]) :- append( Y, Z, W).
@@ -56,3 +54,8 @@ getAns(A) :- A=true, true.
 getAns(A) :- A=false, false.
 
 min-above-min(L1, L2, N) :- runProgram(L1, L2, N, A), !,getAns(A).
+
+
+checkList(L1,L2,N,A) :- checkEachElement(L1,N,R1), checkEachElement(L2,N,R2), getAnswer(R1,R2,A).
+
+common-unique-elements(L1,L2,N) :- checkList(L1,L2,N,A).
