@@ -22,6 +22,12 @@ findSum(L,N) :- adder2(L,Sum), findAns(N,Sum).
 
 sum-up-numbers-general(L, N) :- findSum(L,N).
 
+list_empty([], true).
+list_empty([_|_], false).
+
+append( [], X, X).
+append( [X | Y], Z, [X | W]) :- append( Y, Z, W).
+
 newList(L,[],L).
 newList(L,[X|Li],NL) :- number(X), append(L,[X],New), newList(New,Li,NL).
 newList(L,[X|Li],NL) :- newList(L,Li,NL).
